@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Multi-Counter-V1</title>
+    <title>Multi-Counter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="./style.css" rel="stylesheet" />
   </head>
@@ -16,7 +16,15 @@
         <button id="clearAll" class="danger">Clear all</button>
       </div>
 
-      <!-- NEW: Search + Sort -->
+      <!-- NEW: Theme toggle -->
+      <div class="row theme-row">
+        <label class="toggle" title="Switch between light and dark theme">
+          <input type="checkbox" id="darkMode" />
+          Dark mode
+        </label>
+      </div>
+
+      <!-- Search + Sort -->
       <div class="search row">
         <input id="search" placeholder="Search by name…" />
         <select id="sort">
@@ -46,8 +54,8 @@
 
       <!-- Where counters will render -->
       <div id="list" class="list"></div>
-      
-      <!-- NEW: small footer -->
+
+      <!-- Optional footer (you may already have this) -->
       <footer class="footer">
         <span id="version">v1.0.0</span>
         •
