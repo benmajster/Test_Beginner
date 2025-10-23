@@ -116,3 +116,13 @@ button.is-disabled { opacity: 0.55; cursor: not-allowed; }
   75% { transform: translateX(-2px); }
   100% { transform: translateX(0); }
 }
+.footer {
+  margin-top: 12px;
+  text-align: center;
+  color: #6b7280;   /* muted gray */
+  font-size: 13px;
+}
+.footer a {
+  color: inherit;
+  text-decoration: underline;
+}
