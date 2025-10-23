@@ -1,0 +1,118 @@
+/* Page layout */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #f5f7fb;
+  display: grid;
+  place-items: start center;
+  min-height: 100vh;
+  padding: 24px;
+}
+.app {
+  width: 780px;
+  max-width: 92vw;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+h1 { margin: 0 0 16px; font-size: 26px; }
+
+/* Summary + search + toolbar + settings */
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.summary { justify-content: space-between; margin: 0 0 12px; }
+.search { margin: 0 0 8px; }
+.total { font-size: 18px; font-weight: 600; }
+.toolbar { margin-bottom: 10px; }
+.settings { margin: 8px 0 18px; color: #374151; font-size: 14px; }
+.toggle { display: inline-flex; align-items: center; gap: 8px; }
+.muted { color: #6b7280; font-size: 13px; }
+
+/* Inputs & buttons */
+input[type="text"], input[type="search"], input[type="number"], input:not([type]) {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 16px;
+  flex: 1 1 260px;
+}
+select {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 16px;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 16px;
+  background: #4f46e5; /* indigo */
+  color: white;
+}
+button.secondary { background: #e5e7eb; color: #111; }
+button.danger { background: #ef4444; color: white; }
+button.icon { padding: 10px 12px; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid #6366f1; outline-offset: 2px; }
+
+/* Real disabled is fine for Clear all */
+button[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+/* “Fake disabled” look so we can still click/animate -1 */
+button.is-disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* List of counter cards */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* Counter card */
+.card {
+  padding: 16px;
+  border: 1px solid #eef0f4;
+  border-radius: 14px;
+  background: #fff;
+  display: grid;
+  gap: 10px;
+}
+.card .name-row { display: flex; gap: 8px; align-items: center; }
+.card .name {
+  flex: 1 1 auto;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.card .count {
+  font-size: 42px;
+  text-align: center;
+  margin: 4px 0 10px;
+}
+.card .btn-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Bump animation (count) */
+.count.bump { animation: count-bump 180ms ease; }
+@keyframes count-bump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Shake animation (-1 when disallowed) */
+.danger.shake { animation: shake 120ms ease; }
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
